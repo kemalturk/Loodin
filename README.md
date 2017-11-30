@@ -1,7 +1,7 @@
 # Loodin
 Flexible Loading Views
 
-#License
+# License
 
 Copyright 2017 Kemal Türk
 
