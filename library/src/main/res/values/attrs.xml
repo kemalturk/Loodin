@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <declare-styleable name="Loodin">
+    <attr name="paintColor" format="color" />
+    <attr name="indicator" format="enum">
+      <enum name="CircleView" value="0" />
+    </attr>
+  </declare-styleable>
+
+
+</resources>
