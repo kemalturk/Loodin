@@ -8,14 +8,15 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import com.turkapp.kmltrk.library.Views.CircleIndicatorView
+import com.turkapp.kmltrk.library.Views.BallPulseIndicatorView
+import com.turkapp.kmltrk.library.Views.PlusCircleIndicatorView
 
 /**
  * Created by kmltrk on 11/29/2017.
  */
 class Loodin: View {
 
-  var color = 0
+  private var color = 0
 
   private var w = 0
   private var h = 0
@@ -77,8 +78,9 @@ class Loodin: View {
   private fun selectIndicator(p0: Int){
 
     indicator = when(p0){
-      0 -> CircleIndicatorView(context, w, h, color)
-      else -> CircleIndicatorView(context, w, h, color)
+      0 -> PlusCircleIndicatorView(context, w, h, color)
+      1 -> BallPulseIndicatorView(context, w, h, color)
+      else -> PlusCircleIndicatorView(context, w, h, color)
     }
 
   }

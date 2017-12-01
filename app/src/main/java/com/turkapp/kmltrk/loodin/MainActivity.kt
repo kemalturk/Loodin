@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
 
     btnStart.setOnClickListener {
       circleIndicator?.startAnim()
-      println(circleIndicator?.color)
     }
 
     btnStop.setOnClickListener {

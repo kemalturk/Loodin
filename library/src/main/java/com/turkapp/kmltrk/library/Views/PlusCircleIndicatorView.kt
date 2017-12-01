@@ -9,12 +9,12 @@ import com.turkapp.kmltrk.library.Indicator
 /**
  * Created by kmltrk on 11/29/2017.
  */
-class CircleIndicatorView(context: Context, parentW: Int, parentH: Int,
-                          color: Int) : Indicator(context) {
+class PlusCircleIndicatorView(context: Context, parentW: Int, parentH: Int,
+                              color: Int) : Indicator(context) {
 
-  var radius = 1f
-  var ud = 1f
-  var maxUd = 20f
+  private var radius = 1f
+  private var ud = 1f
+  private var maxUd = 20f
 
   init {
     if (color != 0 ) mPaint.color = color
@@ -47,7 +47,7 @@ class CircleIndicatorView(context: Context, parentW: Int, parentH: Int,
     val animators = ArrayList<ValueAnimator>()
 
     val tAnim = ValueAnimator.ofFloat(1f, maxUd, 1f)
-    tAnim.duration = 1500
+    tAnim.duration = 1000
     tAnim.repeatCount = -1
     tAnim.startDelay = 350
     addUpdateListener(tAnim, ValueAnimator.AnimatorUpdateListener { animation ->

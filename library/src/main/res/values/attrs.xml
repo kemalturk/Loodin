@@ -4,7 +4,8 @@
   <declare-styleable name="Loodin">
     <attr name="paintColor" format="color" />
     <attr name="indicator" format="enum">
-      <enum name="CircleView" value="0" />
+      <enum name="PlusCircleIndicator" value="0" />
+      <enum name="BallPulseIndicator" value="1" />
     </attr>
   </declare-styleable>
 
