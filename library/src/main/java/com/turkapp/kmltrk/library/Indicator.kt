@@ -1,5 +1,6 @@
 package com.turkapp.kmltrk.library
 
+import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
@@ -24,7 +25,7 @@ abstract class Indicator(private val context: Context, parentW: Int, parentH: In
   var mPaint = Paint()
   var centerW = 0f
   var centerH = 0f
-  var minSide = 0 //This is for resize the indicator according to short edge.
+  var minSide = 1f //This is for resize the indicator according to short edge.
 
   private var mAnimators: ArrayList<ValueAnimator>? = null
   private var mUpdateListeners: HashMap<ValueAnimator, ValueAnimator.AnimatorUpdateListener> = HashMap()
@@ -40,9 +41,9 @@ abstract class Indicator(private val context: Context, parentW: Int, parentH: In
     centerW = parentW/2f
 
     minSide = when {
-      parentH > parentW -> parentW
-      parentW > parentH -> parentH
-      else -> parentW
+      parentH > parentW -> parentW.toFloat()
+      parentW > parentH -> parentH.toFloat()
+      else -> parentW.toFloat()
     }
 
   }

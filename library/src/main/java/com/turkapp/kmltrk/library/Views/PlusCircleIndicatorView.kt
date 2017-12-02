@@ -20,7 +20,7 @@ class PlusCircleIndicatorView(context: Context, parentW: Int, parentH: Int, colo
 
   init {
 
-    radius = convertDpToPx((minSide.toFloat() / 6) - maxUd / 3 )
+    radius = convertDpToPx((minSide / 6) - maxUd / 3 )
 
   }
 

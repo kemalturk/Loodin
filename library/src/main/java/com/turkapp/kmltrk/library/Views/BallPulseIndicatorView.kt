@@ -24,7 +24,7 @@ class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int, color
 
   init {
 
-    radius = convertDpToPx((minSide.toFloat() / 6) - (margin/2))
+    radius = convertDpToPx((minSide / 6) - (margin/2))
     r2 = radius
     invalidatePath()
 
@@ -57,7 +57,6 @@ class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int, color
     anim1.startDelay = 350
     addUpdateListener(anim1, ValueAnimator.AnimatorUpdateListener { animation ->
       r1 = animation.animatedValue as Float
-      println(r1)
       invalidatePath()
     })
 
