@@ -76,19 +76,14 @@ class Loodin: View, InvalidateListener {
   }
 
   private fun drawTrack(canvas: Canvas) {
-    val d = indicator
-    if (d != null) {
-      // Translate canvas so a indeterminate circular progress bar with padding
-      // rotates properly in its animation
-      val saveCount = canvas.save()
+    if (indicator != null) {
 
-      canvas.translate(paddingLeft.toFloat(), paddingTop.toFloat())
-
-      d.draw(canvas)
-      canvas.restoreToCount(saveCount)
+      canvas.save()
+      indicator?.draw(canvas)
+      canvas.restore()
 
       if (mShouldStartAnimationDrawable) {
-        d.start()
+        indicator?.start()
         mShouldStartAnimationDrawable = false
       }
     }

@@ -9,7 +9,7 @@
 
   <com.turkapp.kmltrk.library.Loodin
     android:id="@+id/circleIndicator"
-    app:indicator="BallPulseIndicator"
+    app:indicator="PlusCircleIndicator"
     android:layout_width="100dp"
     android:layout_height="100dp"
     android:layout_centerInParent="true"/>
