@@ -8,13 +8,15 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import com.turkapp.kmltrk.library.Views.BallBarrierJumpingView
 import com.turkapp.kmltrk.library.Views.BallPulseIndicatorView
 import com.turkapp.kmltrk.library.Views.PlusCircleIndicatorView
 
 /**
  * Created by kmltrk on 11/29/2017.
  */
-class Loodin: View {
+
+class Loodin: View, InvalidateListener {
 
   private var color = 0
 
@@ -22,6 +24,8 @@ class Loodin: View {
   private var h = 0
   private var ind = 0
   private var indicator: Indicator? = null
+
+  private var mShouldStartAnimationDrawable = false
 
   constructor(context: Context?) : super(context){
     init(context, null, 0, 0)
@@ -66,35 +70,60 @@ class Loodin: View {
 
   }
 
-  override fun onDraw(canvas: Canvas?) {
+  @Synchronized override fun onDraw(canvas: Canvas) {
     super.onDraw(canvas)
-
-    indicator?.draw(canvas)
-
-    if (!indicator!!.isStarted()) startAnim()
-
+    drawTrack(canvas)
   }
+
+  private fun drawTrack(canvas: Canvas) {
+    val d = indicator
+    if (d != null) {
+      // Translate canvas so a indeterminate circular progress bar with padding
+      // rotates properly in its animation
+      val saveCount = canvas.save()
+
+      canvas.translate(paddingLeft.toFloat(), paddingTop.toFloat())
+
+      d.draw(canvas)
+      canvas.restoreToCount(saveCount)
+
+      if (mShouldStartAnimationDrawable) {
+        d.start()
+        mShouldStartAnimationDrawable = false
+      }
+    }
+  }
+
 
   private fun selectIndicator(p0: Int){
 
     indicator = when(p0){
-      0 -> PlusCircleIndicatorView(context, w, h, color)
-      1 -> BallPulseIndicatorView(context, w, h, color)
-      else -> PlusCircleIndicatorView(context, w, h, color)
+      0 -> PlusCircleIndicatorView(context, w, h, color, this)
+      1 -> BallPulseIndicatorView(context, w, h, color, this)
+      2 -> BallBarrierJumpingView(context, w, h, color, this)
+      else -> PlusCircleIndicatorView(context, w, h, color, this)
     }
 
   }
 
+  override fun onInvalidate() {
+    invalidate()
+  }
+
+  override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    super.onLayout(changed, left, top, right, bottom)
+    indicator?.start()
+  }
+
   fun startAnim(){
-    if (indicator != null) indicator?.start(object : InvalidateListener{
-      override fun onInvalidate() {
-        invalidate()
-      }
-    })
+    mShouldStartAnimationDrawable = true
+    invalidate()
   }
 
   fun stopAnim(){
     indicator?.stop()
+    mShouldStartAnimationDrawable = false
+    invalidate()
   }
 
 }

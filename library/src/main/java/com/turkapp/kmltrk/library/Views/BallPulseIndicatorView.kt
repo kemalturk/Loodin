@@ -6,34 +6,25 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
 import com.turkapp.kmltrk.library.Indicator
+import com.turkapp.kmltrk.library.InvalidateListener
 import java.util.ArrayList
 
 /**
  * Created by kmltrk on 12/1/2017.
  */
 
-class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int,
-                             color: Int): Indicator(context) {
+class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int, color: Int, invalidateListener: InvalidateListener?):
+    Indicator(context, parentW, parentH, color, invalidateListener) {
 
   private var path = Path()
-  private var radius = 1f
-  private var r1 = 1f
-  private var r2 = 1f
-  private var margin = 5f
+  private var radius = 1f //Max radius
+  private var r1 = 1f //Center ball radius
+  private var r2 = 1f //Left and Right ball radius
+  private var margin = 5f //Left and Right ball margin
 
   init {
-    if (color != 0 ) mPaint.color = color
 
-    centerH = parentH/2f
-    centerW = parentW/2f
-
-    val wORh = when {
-      parentH > parentW -> parentW
-      parentW > parentH -> parentH
-      else -> parentW
-    }
-
-    radius = convertDpToPx((wORh.toFloat() / 6) - (margin/2))
+    radius = convertDpToPx((minSide.toFloat() / 6) - (margin/2))
     r2 = radius
     invalidatePath()
 
@@ -45,6 +36,7 @@ class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int,
     path.addCircle(centerW, centerH, r1, Path.Direction.CW) //Center
     path.addCircle(centerW + margin + (radius * 2) , centerH, r2, Path.Direction.CW) //Right
     path.addCircle(centerW + (-margin + (radius * (-2))), centerH, r2, Path.Direction.CW) //Left
+    postInvalidate()
 
   }
 
@@ -65,8 +57,8 @@ class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int,
     anim1.startDelay = 350
     addUpdateListener(anim1, ValueAnimator.AnimatorUpdateListener { animation ->
       r1 = animation.animatedValue as Float
+      println(r1)
       invalidatePath()
-      postInvalidate()
     })
 
     val anim2 = ValueAnimator.ofFloat(radius, 1f, radius)
@@ -76,7 +68,6 @@ class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int,
     addUpdateListener(anim2, ValueAnimator.AnimatorUpdateListener { animation ->
       r2 = animation.animatedValue as Float
       invalidatePath()
-      postInvalidate()
     })
 
     animators.add(anim1)

@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.Paint
 import android.graphics.PixelFormat
+import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
 
@@ -16,12 +17,14 @@ import java.util.HashMap
 /**
  * Created by kmltrk on 11/29/2017.
  */
-abstract class Indicator(private val context: Context): Drawable() {
+
+abstract class Indicator(private val context: Context, parentW: Int, parentH: Int,
+                         color: Int, private val invalidateListener: InvalidateListener?): Drawable(), Animatable {
 
   var mPaint = Paint()
   var centerW = 0f
   var centerH = 0f
-  private var invalidateListener: InvalidateListener? = null
+  var minSide = 0 //This is for resize the indicator according to short edge.
 
   private var mAnimators: ArrayList<ValueAnimator>? = null
   private var mUpdateListeners: HashMap<ValueAnimator, ValueAnimator.AnimatorUpdateListener> = HashMap()
@@ -30,6 +33,18 @@ abstract class Indicator(private val context: Context): Drawable() {
     mPaint.color = Color.WHITE
     mPaint.style = Paint.Style.FILL
     mPaint.isAntiAlias = true
+
+    if (color != 0 ) mPaint.color = color
+
+    centerH = parentH/2f
+    centerW = parentW/2f
+
+    minSide = when {
+      parentH > parentW -> parentW
+      parentW > parentH -> parentH
+      else -> parentW
+    }
+
   }
 
   abstract fun draw(canvas: Canvas?, paint: Paint)
@@ -58,20 +73,19 @@ abstract class Indicator(private val context: Context): Drawable() {
 
   abstract fun onCreateAnimators(): ArrayList<ValueAnimator>
 
-  fun start(listener: InvalidateListener) {
 
-    invalidateListener = listener
+  override fun start() {
 
     ensureAnimators()
 
-    if (isStarted()) return
+    if (isStarted() || mAnimators == null) return
 
     startAnimators()
-    invalidateSelf()
+    postInvalidate()
 
   }
 
-  fun stop() {
+  override fun stop() {
     stopAnimators()
   }
 
@@ -104,7 +118,7 @@ abstract class Indicator(private val context: Context): Drawable() {
     if (mAnimators != null){
       mAnimators?.forEach { animator ->
         if (animator.isStarted){
-          animator.removeAllUpdateListeners()
+          animator.removeAllListeners()
           animator.end()
         }
       }
@@ -120,10 +134,19 @@ abstract class Indicator(private val context: Context): Drawable() {
     invalidateListener?.onInvalidate()
   }
 
-  fun isStarted(): Boolean{
+  override fun isRunning(): Boolean {
 
     mAnimators?.forEach { animator ->
       return animator.isRunning
+    }
+
+    return false
+  }
+
+  fun isStarted(): Boolean{
+
+    mAnimators?.forEach { animator ->
+      return animator.isStarted
     }
 
     return false

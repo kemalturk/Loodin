@@ -5,30 +5,22 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import com.turkapp.kmltrk.library.Indicator
+import com.turkapp.kmltrk.library.InvalidateListener
 
 /**
  * Created by kmltrk on 11/29/2017.
  */
-class PlusCircleIndicatorView(context: Context, parentW: Int, parentH: Int,
-                              color: Int) : Indicator(context) {
+
+class PlusCircleIndicatorView(context: Context, parentW: Int, parentH: Int, color: Int, invalidateListener: InvalidateListener?):
+    Indicator(context, parentW, parentH, color, invalidateListener) {
 
   private var radius = 1f
   private var ud = 1f
   private var maxUd = 20f
 
   init {
-    if (color != 0 ) mPaint.color = color
 
-    centerH = parentH/2f
-    centerW = parentW/2f
-
-    val wORh = when {
-      parentH > parentW -> parentW
-      parentW > parentH -> parentH
-      else -> parentW
-    }
-
-    radius = convertDpToPx((wORh.toFloat() / 6) - maxUd / 3 )
+    radius = convertDpToPx((minSide.toFloat() / 6) - maxUd / 3 )
 
   }
 
