@@ -1,6 +1,5 @@
 package com.turkapp.kmltrk.library
 
-import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
@@ -144,7 +143,7 @@ abstract class Indicator(private val context: Context, parentW: Int, parentH: In
     return false
   }
 
-  fun isStarted(): Boolean{
+  private fun isStarted(): Boolean{
 
     mAnimators?.forEach { animator ->
       return animator.isStarted
