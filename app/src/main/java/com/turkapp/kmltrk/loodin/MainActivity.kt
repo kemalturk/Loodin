@@ -1,7 +1,8 @@
 package com.turkapp.kmltrk.loodin
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
 
     btnStop.setOnClickListener {
       circleIndicator?.stopAnim()
+    }
+
+    btnAll.setOnClickListener {
+      startActivity(Intent(this@MainActivity, AllActivity :: class.java))
     }
 
   }

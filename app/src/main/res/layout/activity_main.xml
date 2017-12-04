@@ -10,8 +10,8 @@
   <com.turkapp.kmltrk.library.Loodin
     android:id="@+id/circleIndicator"
     app:indicator="BallBarrierJumpingIndicator"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
     android:layout_centerInParent="true"/>
 
   <LinearLayout
@@ -34,6 +34,13 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Stop" />
+
+    <Button
+      android:id="@+id/btnAll"
+      android:layout_marginLeft="20dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="All"/>
 
   </LinearLayout>
 

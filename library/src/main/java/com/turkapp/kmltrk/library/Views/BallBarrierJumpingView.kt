@@ -16,14 +16,11 @@ import java.util.ArrayList
 class BallBarrierJumpingView(context: Context, private val parentW: Int, parentH: Int, color: Int, invalidateListener: InvalidateListener?):
     Indicator(context, parentW, parentH, color, invalidateListener) {
 
-
   private var radius = 1f
 
   private var maxJumpHeight = 1f
   private var minJumpHeight = 1f
   private var jumpHeight = 0f
-
-  private var littleJumpCounter = 0
 
   private var rectWidth = 1f
 
@@ -44,7 +41,7 @@ class BallBarrierJumpingView(context: Context, private val parentW: Int, parentH
     //Ball
     radius = convertDpToPx((minSide / 2) / 4)
     maxJumpHeight = (parentH/2) - radius
-    minJumpHeight = (maxJumpHeight /10)
+    minJumpHeight = (maxJumpHeight / 25)
 
     //Barrier
     rectWidth = (parentW.toFloat() + radius*2)
@@ -74,11 +71,15 @@ class BallBarrierJumpingView(context: Context, private val parentW: Int, parentH
 
   override fun onCreateAnimators(): ArrayList<ValueAnimator> {
 
+    var littleJumpCounter = 0
+    var bigJumpEnd = true
+    var littleJumpEnd = true
+
     val animators = ArrayList<ValueAnimator>()
 
     val groundSlideAnim = ValueAnimator.ofFloat(0f, groundSpace)
     groundSlideAnim.repeatCount = -1
-    groundSlideAnim.duration = (1500L / groundSize + 4)
+    groundSlideAnim.duration = (1500L / groundSize + rectWidth/radius).toLong()
     groundSlideAnim.startDelay = 0
     addUpdateListener(groundSlideAnim, ValueAnimator.AnimatorUpdateListener { animation ->
 
@@ -89,7 +90,7 @@ class BallBarrierJumpingView(context: Context, private val parentW: Int, parentH
 
     littleJumpAnim = ValueAnimator.ofFloat(0f, minJumpHeight, 0f)
     littleJumpAnim?.repeatCount = 0
-    littleJumpAnim?.duration = 500L
+    littleJumpAnim?.duration = 100L
     littleJumpAnim?.startDelay = 0
     littleJumpAnim?.addUpdateListener { animation ->
       jumpHeight = animation.animatedValue as Float
@@ -118,28 +119,21 @@ class BallBarrierJumpingView(context: Context, private val parentW: Int, parentH
 
     }
 
+    littleJumpAnim?.addListener(object : AnimatorListenerAdapter(){
+      override fun onAnimationEnd(animation: Animator?) {
+        super.onAnimationEnd(animation)
+        littleJumpEnd = true
+      }
+    })
+
     bigJumpAnim?.addListener(object : AnimatorListenerAdapter(){
       override fun onAnimationStart(animation: Animator?) {
         super.onAnimationStart(animation)
         slideAnim?.start()
       }
       override fun onAnimationEnd(p0: Animator?) {
-        littleJumpAnim?.start()
-      }
-    })
-
-    littleJumpAnim?.addListener(object : AnimatorListenerAdapter(){
-      override fun onAnimationEnd(animation: Animator?) {
-        super.onAnimationEnd(animation)
-
-        littleJumpCounter++
-        if (littleJumpCounter >= 5){
-          bigJumpAnim?.start()
-          littleJumpCounter = 0
-        }else{
-          littleJumpAnim?.start()
-        }
-
+        littleJumpCounter = 0
+        bigJumpEnd = true
       }
     })
 
@@ -149,6 +143,24 @@ class BallBarrierJumpingView(context: Context, private val parentW: Int, parentH
         super.onAnimationStart(animation)
         littleJumpCounter = 0
         littleJumpAnim?.start()
+      }
+
+      override fun onAnimationRepeat(animation: Animator?) {
+        super.onAnimationRepeat(animation)
+
+        littleJumpCounter++
+        if (littleJumpCounter >= 10){
+          if (bigJumpEnd){
+            bigJumpAnim?.start()
+            bigJumpEnd = false
+          }
+        }else{
+          if (littleJumpEnd){
+            littleJumpAnim?.start()
+            littleJumpEnd = false
+          }
+        }
+
       }
 
     })
