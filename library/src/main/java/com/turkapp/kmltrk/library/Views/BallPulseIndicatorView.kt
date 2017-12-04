@@ -75,5 +75,8 @@ class BallPulseIndicatorView(context: Context, parentW: Int, parentH: Int, color
     return animators
   }
 
+  override fun onAnimatorsStop() {
+  }
+
 
 }

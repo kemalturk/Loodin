@@ -53,7 +53,8 @@ class PlusCircleIndicatorView(context: Context, parentW: Int, parentH: Int, colo
 
   }
 
-
+  override fun onAnimatorsStop() {
+  }
 
 
 }

@@ -72,6 +72,7 @@ abstract class Indicator(private val context: Context, parentW: Int, parentH: In
   ///////////////////////
 
   abstract fun onCreateAnimators(): ArrayList<ValueAnimator>
+  abstract fun onAnimatorsStop()
 
 
   override fun start() {
@@ -122,7 +123,10 @@ abstract class Indicator(private val context: Context, parentW: Int, parentH: In
           animator.end()
         }
       }
+      mAnimators?.clear()
     }
+
+    onAnimatorsStop()
 
   }
 
