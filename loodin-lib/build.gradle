@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
 
     defaultConfig {
         minSdkVersion 15
@@ -31,7 +31,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:appcompat-v7:27.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
@@ -40,3 +40,24 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+ext {
+    bintrayRepo = 'Loodin' // your repo name
+    bintrayName = 'loodin-lib' // has to be same as your library module name
+    publishedGroupId = 'com.turkapp.kmltrk.loodinlib' // your module package name
+    libraryName = 'loodin'
+    artifact = 'loodin-lib' // has to be same as your library module name
+    libraryDescription = 'Android loading view library'
+    siteUrl = 'https://github.com/kmltrk/Loodin'
+    gitUrl = 'https://github.com/kmltrk/Loodin'
+    libraryVersion = '1.0'
+    developerId = 'kmltrk07'
+    developerName = 'Kemal'
+    developerEmail = 'kmltrk07@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
