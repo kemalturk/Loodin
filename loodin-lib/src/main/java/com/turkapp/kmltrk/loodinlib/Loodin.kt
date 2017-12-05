@@ -1,4 +1,4 @@
-package com.turkapp.kmltrk.library
+package com.turkapp.kmltrk.loodinlib
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -8,9 +8,9 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import com.turkapp.kmltrk.library.Views.BallBarrierJumpingView
-import com.turkapp.kmltrk.library.Views.BallPulseIndicatorView
-import com.turkapp.kmltrk.library.Views.PlusCircleIndicatorView
+import com.turkapp.kmltrk.loodinlib.Views.BallBarrierJumpingView
+import com.turkapp.kmltrk.loodinlib.Views.BallPulseIndicatorView
+import com.turkapp.kmltrk.loodinlib.Views.PlusCircleIndicatorView
 
 /**
  * Created by kmltrk on 11/29/2017.

@@ -7,7 +7,7 @@
   android:background="#2eacef"
   tools:context=".MainActivity">
 
-  <com.turkapp.kmltrk.library.Loodin
+  <com.turkapp.kmltrk.loodinlib.Loodin
     android:id="@+id/circleIndicator"
     app:indicator="BallBarrierJumpingIndicator"
     android:layout_width="150dp"

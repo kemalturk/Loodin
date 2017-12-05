@@ -1,11 +1,11 @@
-package com.turkapp.kmltrk.library.Views
+package com.turkapp.kmltrk.loodinlib.Views
 
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
-import com.turkapp.kmltrk.library.Indicator
-import com.turkapp.kmltrk.library.InvalidateListener
+import com.turkapp.kmltrk.loodinlib.Indicator
+import com.turkapp.kmltrk.loodinlib.InvalidateListener
 
 /**
  * Created by kmltrk on 11/29/2017.

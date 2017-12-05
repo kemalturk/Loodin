@@ -1,4 +1,4 @@
-package com.turkapp.kmltrk.library;
+package com.turkapp.kmltrk.loodinlib;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

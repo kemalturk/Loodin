@@ -1,4 +1,4 @@
-package com.turkapp.kmltrk.library
+package com.turkapp.kmltrk.loodinlib
 
 /**
  * Created by kmltrk on 11/30/2017.
