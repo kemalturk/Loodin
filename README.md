@@ -1,6 +1,17 @@
 # Loodin
 Flexible Loading Views
 
+## Demo
+![Demo](screenshots/g.gif)
+
+
+## Indicators
+
+**Row 1**
+ * `PlusCircleIndicator`
+ * `BallPulseIndicator`
+ * `BallBarrierJumpingIndicator`
+
 # License
 
 Copyright 2017 Kemal Türk
