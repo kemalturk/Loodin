@@ -18,6 +18,7 @@
     <com.turkapp.kmltrk.library.Loodin
       android:layout_margin="10dp"
       android:layout_weight="1"
+      app:indicator="PlusCircleIndicator"
       android:layout_width="0dp"
       android:layout_height="100dp" />
 
