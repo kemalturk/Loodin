@@ -72,7 +72,7 @@ abstract class Indicator(private val context: Context, parentW: Int, parentH: In
   ///////////////////////
 
   abstract fun onCreateAnimators(): ArrayList<ValueAnimator>
-  abstract fun onAnimatorsStop()
+  abstract fun onAnimatorsStop() //We need this because android studio have shitty bugs.
 
 
   override fun start() {
