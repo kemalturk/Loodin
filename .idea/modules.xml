@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Loodin.iml" filepath="$PROJECT_DIR$/Loodin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loodin-lib/loodin-lib.iml" filepath="$PROJECT_DIR$/loodin-lib/loodin-lib.iml" />
+    </modules>
+  </component>
+</project>

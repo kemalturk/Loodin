@@ -11,6 +11,7 @@ import android.view.View
 import com.turkapp.kmltrk.loodinlib.Views.BallBarrierJumpingView
 import com.turkapp.kmltrk.loodinlib.Views.BallPulseIndicatorView
 import com.turkapp.kmltrk.loodinlib.Views.PlusCircleIndicatorView
+import com.turkapp.kmltrk.loodinlib.Views.WindTurbineIndicatorView
 
 /**
  * Created by kmltrk on 11/29/2017.
@@ -96,6 +97,7 @@ class Loodin: View, InvalidateListener {
       0 -> PlusCircleIndicatorView(context, w, h, color, this)
       1 -> BallPulseIndicatorView(context, w, h, color, this)
       2 -> BallBarrierJumpingView(context, w, h, color, this)
+      3 -> WindTurbineIndicatorView(context, w, h, color, this)
       else -> PlusCircleIndicatorView(context, w, h, color, this)
     }
 

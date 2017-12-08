@@ -12,11 +12,11 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     btnStart.setOnClickListener {
-      circleIndicator?.startAnim()
+      indicator?.startAnim()
     }
 
     btnStop.setOnClickListener {
-      circleIndicator?.stopAnim()
+      indicator?.stopAnim()
     }
 
     btnAll.setOnClickListener {

@@ -36,6 +36,13 @@
       android:layout_width="0dp"
       android:layout_height="100dp" />
 
+    <com.turkapp.kmltrk.loodinlib.Loodin
+      android:layout_margin="10dp"
+      android:layout_weight="1"
+      app:indicator="WindTurbineIndicator"
+      android:layout_width="0dp"
+      android:layout_height="100dp" />
+
   </LinearLayout>
 
 </LinearLayout>

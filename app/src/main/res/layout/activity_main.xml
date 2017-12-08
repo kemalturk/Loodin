@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:background="#2eacef"
   tools:context=".MainActivity">
 
   <com.turkapp.kmltrk.loodinlib.Loodin
-    android:id="@+id/circleIndicator"
-    app:indicator="BallBarrierJumpingIndicator"
+    android:id="@+id/indicator"
     android:layout_width="150dp"
     android:layout_height="150dp"
-    android:layout_centerInParent="true"/>
+    android:layout_centerInParent="true"
+    app:indicator="WindTurbineIndicator" />
 
   <LinearLayout
     android:layout_width="wrap_content"
@@ -30,20 +30,19 @@
 
     <Button
       android:id="@+id/btnStop"
-      android:layout_marginLeft="20dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginLeft="20dp"
       android:text="Stop" />
 
     <Button
       android:id="@+id/btnAll"
-      android:layout_marginLeft="20dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="All"/>
+      android:layout_marginLeft="20dp"
+      android:text="All" />
 
   </LinearLayout>
-
 
 
 </RelativeLayout>

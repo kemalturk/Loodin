@@ -7,6 +7,7 @@
       <enum name="PlusCircleIndicator" value="0" />
       <enum name="BallPulseIndicator" value="1" />
       <enum name="BallBarrierJumpingIndicator" value="2" />
+      <enum name="WindTurbineIndicator" value="3" />
     </attr>
   </declare-styleable>
 
