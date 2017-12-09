@@ -6,8 +6,6 @@ import android.graphics.*
 import com.turkapp.kmltrk.loodinlib.Indicator
 import com.turkapp.kmltrk.loodinlib.InvalidateListener
 import java.util.ArrayList
-import android.graphics.ColorMatrix
-
 
 
 /**
@@ -40,7 +38,7 @@ class WindTurbineIndicatorView(context: Context, parentW: Int, parentH: Int, col
     mPaint.strokeWidth = 10f
     mPaint.style = Paint.Style.FILL
 
-    paint2.color = color.minus(20)
+    paint2.color = color.minus(40)
 
     smallTriangle.reset()
     smallTriangle.moveTo(centerW, centerH)
@@ -55,7 +53,6 @@ class WindTurbineIndicatorView(context: Context, parentW: Int, parentH: Int, col
     bigTriangle.lineTo(centerW + sTa, centerH - sTa)
     bigTriangle.lineTo(centerW, centerH)
     bigTriangle.close()
-
 
   }
 
