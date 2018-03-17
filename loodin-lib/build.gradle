@@ -7,11 +7,17 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+    }
+
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+        options.addStringOption('charSet', 'UTF-8')
     }
 
     buildTypes {
@@ -31,33 +37,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
-repositories {
-    mavenCentral()
-}
-
-ext {
-    bintrayRepo = 'Loodin' // your repo name
-    bintrayName = 'loodin-lib' // has to be same as your library module name
-    publishedGroupId = 'com.turkapp.kmltrk.loodinlib' // your module package name
-    libraryName = 'loodin'
-    artifact = 'loodin-lib' // has to be same as your library module name
-    libraryDescription = 'Android loading view library'
-    siteUrl = 'https://github.com/kmltrk/Loodin'
-    gitUrl = 'https://github.com/kmltrk/Loodin'
-    libraryVersion = '1.0'
-    developerId = 'kmltrk07'
-    developerName = 'Kemal'
-    developerEmail = 'kmltrk07@gmail.com'
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
