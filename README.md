@@ -5,7 +5,7 @@ Flexible Kotlin Based Loading Views
 
 
 ## Demo
-![Demo](screenshots/g.gif)
+![Demo](screenshots/screenshot.gif)
 
 ## Download
 
