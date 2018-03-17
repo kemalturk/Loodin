@@ -35,7 +35,9 @@ Add the dependency
 ## How To Use
 
 Add the Loodin to your layout.
+
 For change the indicator, change only indicator parameter
+
 For change the indicator color, change paintColor parameter
 
 ```
