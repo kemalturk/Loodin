@@ -1,5 +1,8 @@
 # Loodin
-Flexible Loading Views
+Flexible Kotlin Based Loading Views
+
+[![](https://jitpack.io/v/kmltrk/Loodin.svg)](https://jitpack.io/#kmltrk/Loodin)
+
 
 ## Demo
 ![Demo](screenshots/g.gif)
@@ -11,6 +14,36 @@ Flexible Loading Views
  * `PlusCircleIndicator`
  * `BallPulseIndicator`
  * `BallBarrierJumpingIndicator`
+ * `WindTurbineIndicator`
+ 
+## How To Use
+
+Change only indicator parameter
+
+```
+  <com.kmltrk.loodinlib.Loodin
+    app:indicator="WindTurbineIndicator"
+    android:layout_centerInParent="true"
+    android:layout_width="150dp"
+    android:layout_height="150dp" />
+
+```
+
+You can stop or start animation..
+
+```
+    val btnStart: Button = findViewById(R.id.btnStart)
+    val btnStop: Button = findViewById(R.id.btnStop)
+    val indicator: Loodin = findViewById(R.id.indicator)
+
+    btnStart.setOnClickListener {
+      indicator.startAnim()
+    }
+
+    btnStop.setOnClickListener {
+      indicator.stopAnim()
+    }
+```
 
 # License
 
