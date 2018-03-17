@@ -7,22 +7,41 @@ Flexible Kotlin Based Loading Views
 ## Demo
 ![Demo](screenshots/g.gif)
 
+## Download
 
-## Indicators
+**Step 1** 
+Add the JitPack repository to your build file.
+Add it in your root build.gradle at the end of repositories:
 
-**Row 1**
- * `PlusCircleIndicator`
- * `BallPulseIndicator`
- * `BallBarrierJumpingIndicator`
- * `WindTurbineIndicator`
+```
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+**Step 2** 
+Add the dependency
+
+```
+	dependencies {
+	        compile 'com.github.kmltrk:Loodin:1.0.2'
+	}
+
+```
  
 ## How To Use
 
-Change only indicator parameter
+Add the Loodin to your layout.
+For change the indicator, change only indicator parameter
+For change the indicator color, change paintColor parameter
 
 ```
   <com.kmltrk.loodinlib.Loodin
     app:indicator="WindTurbineIndicator"
+    app:paintColor="#FFF"
     android:layout_centerInParent="true"
     android:layout_width="150dp"
     android:layout_height="150dp" />
@@ -44,6 +63,14 @@ You can stop or start animation..
       indicator.stopAnim()
     }
 ```
+
+## Indicators
+
+**Row 1**
+ * `PlusCircleIndicator`
+ * `BallPulseIndicator`
+ * `BallBarrierJumpingIndicator`
+ * `WindTurbineIndicator`
 
 # License
 
