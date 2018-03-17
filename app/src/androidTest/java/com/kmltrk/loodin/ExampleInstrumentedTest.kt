@@ -1,4 +1,4 @@
-package com.turkapp.kmltrk.loodin
+package com.kmltrk.loodin
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
   fun useAppContext() {
     // Context of the app under test.
     val appContext = InstrumentationRegistry.getTargetContext()
-    assertEquals("com.turkapp.kmltrk.loodin", appContext.packageName)
+    assertEquals("com.kmltrk.loodin", appContext.packageName)
   }
 }

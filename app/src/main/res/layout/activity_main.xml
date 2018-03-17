@@ -7,7 +7,7 @@
   android:background="#2eacef"
   tools:context=".MainActivity">
 
-  <com.turkapp.kmltrk.loodinlib.Loodin
+  <com.kmltrk.loodinlib.Loodin
     android:id="@+id/indicator"
     android:layout_width="150dp"
     android:layout_height="150dp"

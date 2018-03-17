@@ -1,4 +1,4 @@
-package com.turkapp.kmltrk.loodinlib
+package com.kmltrk.loodinlib
 
 import android.animation.ValueAnimator
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.turkapp.kmltrk.loodin
+package com.kmltrk.loodin
 
 import android.app.Activity
 import android.os.Bundle

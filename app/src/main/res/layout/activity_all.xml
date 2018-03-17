@@ -15,28 +15,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.turkapp.kmltrk.loodinlib.Loodin
+    <com.kmltrk.loodinlib.Loodin
       android:layout_margin="10dp"
       android:layout_weight="1"
       app:indicator="PlusCircleIndicator"
       android:layout_width="0dp"
       android:layout_height="100dp" />
 
-    <com.turkapp.kmltrk.loodinlib.Loodin
+    <com.kmltrk.loodinlib.Loodin
       android:layout_margin="10dp"
       android:layout_weight="1"
       app:indicator="BallPulseIndicator"
       android:layout_width="0dp"
       android:layout_height="100dp" />
 
-    <com.turkapp.kmltrk.loodinlib.Loodin
+    <com.kmltrk.loodinlib.Loodin
       android:layout_margin="10dp"
       android:layout_weight="1"
       app:indicator="BallBarrierJumpingIndicator"
       android:layout_width="0dp"
       android:layout_height="100dp" />
 
-    <com.turkapp.kmltrk.loodinlib.Loodin
+    <com.kmltrk.loodinlib.Loodin
       android:layout_margin="10dp"
       android:layout_weight="1"
       app:indicator="WindTurbineIndicator"

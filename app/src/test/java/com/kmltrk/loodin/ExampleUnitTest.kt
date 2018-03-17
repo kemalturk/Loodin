@@ -1,4 +1,4 @@
-package com.turkapp.kmltrk.loodin
+package com.kmltrk.loodin
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
